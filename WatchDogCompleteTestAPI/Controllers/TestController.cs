@@ -20,7 +20,7 @@ namespace WatchDogCompleteTestAPI.Controllers
         public Product TestGetThrow(string reference)
         {
             throw new Exception("O get o, then forget");
-            return new Product { Id = 1, Name = "Get Test Product", Description = $"This is the response from testGet - {reference}", IsOnSale = true };
+           // return new Product { Id = 1, Name = "Get Test Product", Description = $"This is the response from testGet - {reference}", IsOnSale = true };
             
         }
 
@@ -35,15 +35,15 @@ namespace WatchDogCompleteTestAPI.Controllers
         public string TestPut(Product product)
         {
             throw new NotImplementedException("Ask yourself, did you implement this?");
-            return $"Put action for {product.Name} successful!";
+          //  return $"Put action for {product.Name} successful!";
         }
 
         [HttpPatch("testPatch")]
         public JsonResult TestPatch([Required] int id, string name)
         {
             throw new AccessViolationException("That one there was a violation, personally i wouldn't have it");
-            var product = new Product { Id = id, Name = name, Description = $"This is the response from testPatch", IsOnSale = false };
-            return Json(new { Code = "00", Message = $"Product {id} patched successfully with name change {name}", product});
+           // var product = new Product { Id = id, Name = name, Description = $"This is the response from testPatch", IsOnSale = false };
+           // return Json(new { Code = "00", Message = $"Product {id} patched successfully with name change {name}", product});
         }
 
         [HttpDelete("testDelete")]

@@ -84,10 +84,12 @@ namespace WatchDog.src.Services
                         logger.LogInformation("Log Clearer Background service is starting");
                         logger.LogInformation($"Log is clearing...");
                         loggerService.ClearWatchLogs();
+                        
                     }
                     catch (Exception ex)
                     {
                         logger.LogError(ex.Message);
+                      
                     }
 
                 }
@@ -97,7 +99,7 @@ namespace WatchDog.src.Services
                 logger.LogError($"Log Clearer Background service error : {ex.Message}");
             }
         }
-
+        override
         public Task StopAsync(CancellationToken cancellationToken)
         {
             logger.LogInformation("Log Clearer Background service is stopping");

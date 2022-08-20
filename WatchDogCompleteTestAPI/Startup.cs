@@ -28,6 +28,7 @@ namespace WatchDogCompleteTestAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddSwaggerGen();
             services.AddWatchDogServices();
         }
 
@@ -38,6 +39,8 @@ namespace WatchDogCompleteTestAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseSwagger();
+            app.UseSwaggerUI();
             app.UseWatchDogExceptionLogger();
 
             app.UseHttpsRedirection();
@@ -46,7 +49,7 @@ namespace WatchDogCompleteTestAPI
 
             app.UseAuthorization();
 
-            app.UseWatchDog(opt => { opt.WatchPageUsername = "admin"; opt.WatchPagePassword = "Qwerty@123"; opt.Blacklist = "Test/testPost, weatherforecast"; });
+            app.UseWatchDog(opt => { opt.WatchPageUsername = "admin"; opt.WatchPagePassword = "admin"; opt.Blacklist = "Test/testPost, weatherforecast"; });
 
             app.UseEndpoints(endpoints =>
             {
